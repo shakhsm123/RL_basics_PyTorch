@@ -1,0 +1,11 @@
+import torch
+
+reward_list=torch.tensor([1,1,1,1,0,0,0,1,1,1])
+factor=0.8
+time=4
+def cumulative_discount(reward_list, timestep, factor):
+  working_reward_list=reward_list[timestep:]
+  factors=factor**torch.arange(len(working_reward_list))
+  working_reward_list=torch.sum(working_reward_list*factors)
+  return working_reward_list
+  
