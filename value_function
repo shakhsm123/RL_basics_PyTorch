@@ -1,0 +1,13 @@
+import torch
+states = ["A", "B", "A", "C", "B", "A"]
+returns = torch.tensor([10., 8., 12., 6., 9., 14.])
+
+def value_function(states, returns):
+  values={}
+  for key, value in zip(states, returns):
+    values.setdefault(key, []).append(value)
+  for i in values:
+      j=len(values[i])
+      values[i]=torch.sum(values[i])/j
+  return values
+    
