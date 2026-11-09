@@ -9,3 +9,11 @@ def cumulative_discount(reward_list, timestep, factor):
   working_reward_list=torch.sum(working_reward_list*factors)
   return working_reward_list
   
+def every_timestep(reward_list, factor):
+  every_timestep=[]
+  for i in range(len(reward_list)):
+    working_reward_list=reward_list[i:]
+    factors=factor**torch.arange(len(working_reward_list))
+    working_reward_list=working_reward_list*factors
+    every_timestep.append(torch.sum(working_reward_list))
+  return every_timestep
