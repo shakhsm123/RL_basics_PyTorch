@@ -3,8 +3,7 @@ import torch
 rewards = torch.tensor([0,0,1,1,1,0,0,0,0,1,1,0])
 
 def reward_at_timestep(reward_list, timestep):
-  if timestep==len(reward_list):
-    return torch.sum(reward_list[timestep-1])
+  
   reward_at_timestep=torch.sum(reward_list[timestep:])
   return reward_at_timestep
   
