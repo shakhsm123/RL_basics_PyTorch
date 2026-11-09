@@ -1,0 +1,10 @@
+import torch
+
+rewards=torch.tensor([0,0,1,1,1,0,0,0,0,1,1,0])
+
+def cumulative_rewards(reward_list):
+  return torch.sum(reward_list)
+
+print(cumulative_rewards(rewards))
+
+  
